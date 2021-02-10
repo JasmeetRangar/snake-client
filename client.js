@@ -6,7 +6,19 @@ const connect = function() {
     port: 50542
   });
   conn.setEncoding('utf8');
-  conn.write("Name: JSR");
+  // setTimeout(() => {
+  //   conn.write("Move: up");
+  // }, 50);
+  // setTimeout(() => {
+  //   conn.write("Move: up");
+  // }, 100);
+  // setTimeout(() => {
+  //   conn.write("Move: up");
+  // }, 150);
+  
+  
+
+
   conn.on('connect', () =>{
     console.log("Successfully connected to game server");
   })
