@@ -6,7 +6,10 @@ const connect = function() {
     port: 50542
   });
   conn.setEncoding('utf8');
-  
+  conn.write("Name: JSR");
+  conn.on('connect', () =>{
+    console.log("Successfully connected to game server");
+  })
   conn.on('data', (data) => {    
     console.log(data);
   })
