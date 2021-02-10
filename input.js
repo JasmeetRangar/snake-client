@@ -1,3 +1,12 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+const stdin = process.stdin;
+stdin.setRawMode(true);
+stdin.setEncoding('utf8');
 let connection;
 const handleUserInput = (key) => {
   if (key === '\u0003') {
@@ -15,6 +24,15 @@ const handleUserInput = (key) => {
   else if(key === 'a') {
     connection.write("Move: left");
   }
+  else if (key === 'g') {
+    connection.write("Say: Hello!");
+  }
+  else if (key === 'l') {
+    connection.write("Say: Watch out!!");
+  }
+  else if (key === 'n') {
+    connection.write("Say: You Dieded! :(");
+  }
 }
 /**
  * Setup User Interface 
@@ -22,10 +40,7 @@ const handleUserInput = (key) => {
  */
 const setupInput = function(conn) {
   connection = conn;
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding('utf8');
-  stdin.resume();
+    stdin.resume();
   stdin.on('data', handleUserInput);
   return stdin;
 }
